@@ -1,0 +1,7 @@
+package com.fileupload.Repository;
+
+import com.fileupload.Entity.FileDB;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FileDBRepsitory extends JpaRepository<FileDB, String> {
+}

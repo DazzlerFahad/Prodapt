@@ -1,0 +1,5 @@
+package com.invent.entities;
+
+public class Registration {
+
+}

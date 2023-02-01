@@ -1,0 +1,22 @@
+package com.invent.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.invent.entities.Registration;
+import com.invent.repository.RegistrationRepository;
+
+@Service
+public class RegistrationService {
+
+	@Autowired
+	private RegistrationRepository regRepo;
+	
+	public Registration saveUser(Registration registration) {
+		return regRepo.save(registration);
+	}
+	
+	public Registration fetchUserByEmail(String email) {
+		((Object) regRepo).findByEmail(email);
+	}
+}

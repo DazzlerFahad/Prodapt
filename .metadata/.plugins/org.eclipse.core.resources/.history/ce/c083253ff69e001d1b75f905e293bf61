@@ -1,0 +1,10 @@
+package com.invent.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RegistrationController {
+
+	//To save registration
+	
+}

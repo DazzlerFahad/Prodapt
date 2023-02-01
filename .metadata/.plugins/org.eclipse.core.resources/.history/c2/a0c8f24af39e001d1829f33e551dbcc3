@@ -1,0 +1,14 @@
+package com.invent;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
+@SpringBootApplication
+public class InvetappApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(InvetappApplication.class, args);
+	}
+
+}

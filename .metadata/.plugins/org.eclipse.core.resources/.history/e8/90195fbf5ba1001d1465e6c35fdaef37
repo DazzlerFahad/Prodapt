@@ -1,0 +1,14 @@
+package com.fileupload.Service;
+
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.fileupload.Entity.FileDB;
+
+import java.util.List;
+
+public interface IExcelDataService {
+
+     List<FileDB> getExcelDataAsList();
+
+     int saveExcelData(List<FileDB> filedb);
+
+}

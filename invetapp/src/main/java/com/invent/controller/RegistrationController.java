@@ -1,0 +1,51 @@
+package com.invent.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.invent.entities.Registration;
+import com.invent.services.RegistrationService;
+
+@RestController
+public class RegistrationController {
+
+	@Autowired
+	private RegistrationService regSer;
+	
+	//To save registration
+	@PostMapping("/registeruser")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Registration registrationUser(@RequestBody Registration registration) throws Exception {
+		String tempEmailId = registration.getEmail();
+		if(tempEmailId != null && !"".equals(tempEmailId)) {
+			Registration regObj= regSer.fetchUserByEmail(tempEmailId);
+			if (regObj != null) {
+				throw new Exception("user with"+tempEmailId+" is already exist");
+			}
+		}
+		Registration regObj = null;
+		regObj = regSer.saveUser(registration);
+		return regObj;
+	}
+	
+	//To login
+	@PostMapping("/login")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Registration loginUser(@RequestBody Registration registration) throws Exception {
+		String tempEmailId = registration.getEmail();
+		String tempPass = registration.getPassword();
+		Registration regObj = null;
+		
+		if(tempEmailId != null && tempPass!=null) {
+			regObj = regSer.fetchUserByEmailAndPassword(tempEmailId, tempPass);
+		}
+		if(regObj == null) {
+			throw new Exception("Bad Credentials");
+		}
+		return regObj;
+	}
+}

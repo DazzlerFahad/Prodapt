@@ -1,0 +1,5 @@
+package com.invent.services;
+
+public class RegistrationService {
+
+}

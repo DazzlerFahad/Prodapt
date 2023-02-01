@@ -1,0 +1,22 @@
+server.port=9090
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/shdb
+spring.datasource.username=root
+spring.datasource.password=admin
+
+
+# Data JPA Properties
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+
+# MVC view properties
+spring.mvc.view.prefix= /WEB-INF/jsp/
+spring.mvc.view.suffix= .jsp
+
+
+# upload file
+app.upload.dir=D:/ExcelUploadRepo
+
+# Excel file as input for storing it's data
+app.upload.file=D:/ExcelUploadRepo/.xlsx
+
